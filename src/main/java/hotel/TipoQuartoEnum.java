@@ -1,5 +1,8 @@
 package hotel;
 
+import lombok.Getter;
+
+@Getter
 public enum TipoQuartoEnum {
     SIMPLES(90, 140, 10),
     LUXO(150, 400, 5),
@@ -13,17 +16,5 @@ public enum TipoQuartoEnum {
         this.valorNormal = valorNormal;
         this.valorTemporada = valorTemporada;
         this.quantidadeDisponiveis = quantidadeDisponiveis;
-    }
-
-    public int getValorNormal() {
-        return valorNormal;
-    }
-
-    public int getValorTemporada() {
-        return valorTemporada;
-    }
-
-    public int getQuantidadeDisponiveis() {
-        return quantidadeDisponiveis;
     }
 }

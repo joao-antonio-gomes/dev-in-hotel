@@ -13,14 +13,14 @@ public class DataCustom {
     }
 
     public DataCustom(String data) throws ParseException {
-        this.data = formataDataPorString(data);
+        this.data = obtemDataLocalDatePorString(data);
     }
 
     public String obtemDataEmString() {
         return data.format(formato);
     }
 
-    private LocalDate formataDataPorString(String data) throws ParseException {
+    public LocalDate obtemDataLocalDatePorString(String data) throws ParseException {
         return LocalDate.parse(data, formato);
     }
 
@@ -30,8 +30,8 @@ public class DataCustom {
     }
 
     public int verificaDiferencaEntreDatas(String dataInicial, String dataFinal) throws ParseException {
-        LocalDate dataI = formataDataPorString(dataInicial);
-        LocalDate dataF = formataDataPorString(dataFinal);
+        LocalDate dataI = obtemDataLocalDatePorString(dataInicial);
+        LocalDate dataF = obtemDataLocalDatePorString(dataFinal);
 
         return (int) ChronoUnit.DAYS.between(dataI, dataF);
     }
