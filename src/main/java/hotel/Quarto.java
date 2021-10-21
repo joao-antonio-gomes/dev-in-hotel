@@ -27,10 +27,6 @@ public class Quarto {
 
     @Override
     public String toString() {
-        return "Quarto{" +
-                "precoQuartoNormal=" + precoQuartoNormal +
-                ", precoQuartoTemporada=" + precoQuartoTemporada +
-                ", numQuartosDisponiveis=" + numQuartosDisponiveis +
-                '}';
+        return "Quarto tipo " + tipoQuarto;
     }
 }
