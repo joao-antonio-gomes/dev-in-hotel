@@ -3,6 +3,8 @@ package hotel;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.text.ParseException;
+
 @Getter
 public class Quarto {
     private TipoQuartoEnum tipoQuarto;
@@ -13,10 +15,20 @@ public class Quarto {
     private static int numQuartosSupremoDisponiveis = TipoQuartoEnum.SUPREMO.getQuantidadeDisponiveis();
 
     public Quarto(TipoQuartoEnum tipoQuarto) {
+        verificaLotacaoQuartos(tipoQuarto);
         this.tipoQuarto = tipoQuarto;
         this.precoQuartoNormal = tipoQuarto.getValorNormal();
         this.precoQuartoTemporada = tipoQuarto.getValorTemporada();
         setNumQuartosDisponiveis(tipoQuarto);
+    }
+
+    private void verificaLotacaoQuartos(TipoQuartoEnum tipoQuarto) {
+        int numeroQuartosDisponiveis = Quarto.getNumQuartosDisponiveis(tipoQuarto);
+        try {
+            if (numeroQuartosDisponiveis <= 0) throw new Exception("Não há quartos do tipo " + tipoQuarto + " disponíveis!");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void setNumQuartosDisponiveis(TipoQuartoEnum tipoQuarto) {
@@ -36,6 +48,14 @@ public class Quarto {
             default -> throw new IllegalStateException("Unexpected value: " + tipoQuarto);
         }
         return numQuartos;
+    }
+
+    public static void addNovoQuartoReservaCancelada(TipoQuartoEnum quarto) {
+        switch (quarto) {
+            case LUXO -> numQuartosLuxoDisponiveis++;
+            case SIMPLES -> numQuartosSimplesDisponiveis++;
+            case SUPREMO -> numQuartosSupremoDisponiveis++;
+        }
     }
 
     @Override

@@ -11,12 +11,14 @@ import java.util.List;
 
 public class HotelTest {
     public static void main(String[] args) throws Exception {
-        Hospede hospede = new Hospede("0001112", "04/12/1996");
+        Hospede hospede = new Hospede("João", "0001112", "04/12/1996");
         List<Hospede> hospedes = new ArrayList<>();
         hospedes.add(hospede);
-        Reserva reserva = new Reserva(hospedes, "23/11/2021", 2, TipoQuartoEnum.LUXO);
         Reserva reserva2 = new Reserva(hospedes, "23/11/2021", 2, TipoQuartoEnum.LUXO);
-
-        System.out.println(Quarto.getNumQuartosDisponiveis(TipoQuartoEnum.LUXO));
+        Reserva reserva3 = new Reserva(hospedes, "23/11/2021", 2, TipoQuartoEnum.LUXO);
+        Reserva reserva4 = new Reserva(hospedes, "23/11/2021", 2, TipoQuartoEnum.LUXO);
+        Reserva reserva5 = new Reserva(hospedes, "23/11/2021", 2, TipoQuartoEnum.LUXO);
+        Reserva reserva6 = new Reserva(hospedes, "23/11/2021", 2, TipoQuartoEnum.LUXO);
+        Reserva reserva7 = new Reserva(hospedes, "23/11/2021", 2, TipoQuartoEnum.LUXO);
     }
 }
